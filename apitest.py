@@ -6,8 +6,8 @@ for page in range(0,201):
     r = requests.get(url = "https://api.nytimes.com/svc/search/v2/articlesearch.json",
                      params = {'api-key': "91c424e7544b4d2d9cf14dd03ee7693d",
                                'fq': "persons:(\"TRUMP, DONALD\") AND source:(\"The New York Times\") AND document_type:(\"article\")",
-                               'begin_date': "20170123",
-                               'end_date':"20170928",
+                               'begin_date': "20170501",
+                               'end_date':"20170605",
                                'sort': "newest",
                                'fl': "web_url,pub_date,headline,abstract,news_desk",
                                'page':page})
@@ -24,4 +24,4 @@ for page in range(0,201):
         if len(articletext)>0:
             articles.append((document["pub_date"].split("T")[0],document["headline"]["main"] + " " + articletext))
 
-pickle.dump( articles, open( "articles", "wb" ) )
+pickle.dump( articles, open( "articles4", "wb" ) )
