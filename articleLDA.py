@@ -5,7 +5,7 @@ import pickle
 
 
 num_features = 1000
-num_components = 20
+num_components = 10
 
 def print_top_words(model, feature_names, n_top_words):
     for topic_idx, topic in enumerate(model.components_):
@@ -26,7 +26,7 @@ tf_vectorizer = CountVectorizer(max_df=0.8, min_df=2,max_features=num_features,s
 tf = tf_vectorizer.fit_transform(data)
 
 print("Learning LDA...")
-lda = LatentDirichletAllocation(n_components=num_components,learning_method='online')
+lda = LatentDirichletAllocation(n_components=num_components,learning_method='online',random_state=17)
 features = lda.fit_transform(tf)
 
 
