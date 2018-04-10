@@ -11,7 +11,7 @@ days = np.arange(num_days)
 
 plt.figure()
 plt.plot(days, sentiments_by_day)
-plt.title("Average Sentiment of New York Times Articles About Trump per Day")
+plt.title("Average Sentiment of New York Times Articles About Trump by Day")
 plt.xlabel("Days Since Inauguration")
 plt.ylabel("Positive Sentiment")
 plt.savefig("sentiment_plots/by_day")
@@ -24,7 +24,7 @@ days_w = days[w::w] - w
 plt.figure()
 new = [np.mean(sentiments_by_day[j-w:j]) for j in range(w,num_days,w)]
 plt.bar(days_w, new, width=w)
-plt.title("Average Sentiment of New York Times Articles About Trump per Day")
+plt.title("Average Sentiment of New York Times Articles About Trump by Week")
 plt.xlabel("Days Since Inauguration")
 plt.ylabel("Positive Sentiment")
 plt.savefig("sentiment_plots/by_week")
